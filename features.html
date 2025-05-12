@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitur - Serenity Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #6c63ff;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6c63ff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .features-page {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .feature-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .feature-detail:nth-child(even) .feature-text {
+            order: 2;
+        }
+
+        .feature-detail:nth-child(even) .feature-media {
+            order: 1;
+        }
+
+        .feature-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #6c63ff;
+        }
+
+        .feature-text p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .feature-text li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        .feature-media {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-media:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .feature-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(108, 99, 255, 0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ffd700;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .feature-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-detail:nth-child(even) .feature-text,
+            .feature-detail:nth-child(even) .feature-media {
+                order: initial;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-links li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-graduation-cap logo-icon-kuning"></i>
+                    <span>Serenity Student</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Fitur</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="features-page">
+        <div class="container">
+            <h2 class="section-title">Fitur Lengkap Serenity Student</h2>
+            <p class="section-subtitle">Desain untuk pengalaman belajar terbaik</p>
+
+            <div class="feature-detail">
+                <div class="feature-text">
+                    <h3>Kelas Interaktif Live</h3>
+                    <p>Belajar langsung dengan pengajar profesional melalui kelas online interaktif. Ajukan pertanyaan, diskusikan materi, dan dapatkan umpan balik langsung.</p>
+                    <ul>
+                        <li>Sesi tanya jawab langsung dengan pengajar</li>
+                        <li>Whiteboard digital untuk penjelasan materi</li>
+                        <li>Rekaman kelas yang bisa diakses kapan saja</li>
+                        <li>Kapasitas kelas terbatas untuk interaksi maksimal</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <img src="assets/KelasInteraktif.png" alt="Kelas Interaktif">
+                </div>
+            </div>
+
+            <div class="feature-detail">
+                <div class="feature-text">
+                    <h3>Kuis dan Evaluasi Otomatis</h3>
+                    <p>Sistem kuis cerdas kami memberikan penilaian instan dan umpan balik personal untuk membantu Anda memahami kelebihan dan area yang perlu ditingkatkan.</p>
+                    <ul>
+                        <li>Bank soal dengan ribuan pertanyaan</li>
+                        <li>Penilaian otomatis dengan analisis mendalam</li>
+                        <li>Mode latihan dan mode ujian</li>
+                        <li>Pembahasan detail untuk setiap soal</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <img src="assets/KuisOtomatis.png" alt="Kuis Otomatis">
+                </div>
+            </div>
+
+            <div class="feature-detail">
+                <div class="feature-text">
+                    <h3>Materi Pembelajaran Berkualitas</h3>
+                    <p>Ribuan video pembelajaran berkualitas tinggi yang dirancang oleh ahli di bidangnya. Belajar sesuai ritme Anda sendiri.</p>
+                    <ul>
+                        <li>Video HD dengan audio jernih</li>
+                        <li>Durasi optimal 10-15 menit per video</li>
+                        <li>Transkrip dan catatan yang bisa diunduh</li>
+                        <li>Playlist pembelajaran yang terstruktur</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="video-container">
+                        <video controls poster="assets/MateriPembelajaran.png">
+                            <source src="assets/MateriPembelajaran.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align:center; margin-top:4rem; color:#6c63ff;">Fitur Tambahan</h3>
+            <div class="feature-gallery">
+                <div class="gallery-item">
+                    <img src="assets/PelacakanKemajuan.png" alt="Pelacakan Kemajuan">
+                    <div class="gallery-caption">Pelacakan Kemajuan Belajar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/SertifikatPenyelesaian.png" alt="Sertifikat Penyelesaian">
+                    <div class="gallery-caption">Sertifikat Penyelesaian</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/FormDiskusi.png" alt="Forum Diskusi">
+                    <div class="gallery-caption">Forum Diskusi Siswa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Serenity Student</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Fitur</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2025 Serenity Student. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

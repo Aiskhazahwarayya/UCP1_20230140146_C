@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Student - Belajar Online Lebih Mudah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Serenity Student</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Fitur</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="discount-popup" id="discountPopup">
+        <div class="discount-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <div class="discount-tag">DISKON 20%!</div>
+            <h2>Promo Spesial untuk Anda</h2>
+            <p>Dapatkan diskon 20% untuk pendaftaran pertama di Serenity Student. Buruan sebelum promo berakhir!</p>
+            <a href="contact.html" class="cta-button" style="margin-top:20px;">Klaim Diskon Sekarang</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Belajar Lebih Mudah dengan Serenity Student</h1>
+            <p id="datetime"></p>
+            <p>Platform pembelajaran online terbaik dengan metode interaktif yang membuat belajar menjadi menyenangkan dan efektif. Dapatkan diskon 20% untuk pendaftaran pertama!</p>
+            <div>
+                <a href="contact.html" class="cta-button">Daftar Sekarang</a>
+                <a href="features.html" class="cta-button secondary-button">Pelajari Lebih Lanjut</a>
+            </div>
+            <img src="assets/GambarHalamanUtama.png" alt="Serenity Student Dashboard" class="hero-image">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan Kami</h2>
+            <p class="section-subtitle">Yang membedakan kami dari yang lain</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="feature-title">Kelas Interaktif</h3>
+                    <p>Belajar dengan pengajar profesional melalui kelas live yang interaktif dan menyenangkan.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="feature-title">Kuis Otomatis</h3>
+                    <p>Sistem kuis otomatis dengan penilaian instan untuk mengukur pemahaman Anda.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Pelacakan Kemajuan</h3>
+                    <p>Pantau perkembangan belajar Anda dengan dashboard yang informatif dan mudah dipahami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Serenity Student</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Fitur</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2025 Serenity Student. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('discountPopup').style.display = 'block';
+        }, 3000);
+
+        function closePopup() {
+            document.getElementById('discountPopup').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('discountPopup')) {
+                closePopup();
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

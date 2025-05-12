@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Serenity Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Serenity Student</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Fitur</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Daftar sekarang dan dapatkan diskon 20% untuk pendaftaran pertama!</p>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>(021) 1234-5678</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@serenitystudent.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 08.00 - 17.00 WIB</p>
+                            <p>Sabtu: 09.00 - 15.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Form Pendaftaran</h3>
+                    <form id="registrationForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Minat Belajar</label>
+                            <div class="interest-options">
+                                <div class="interest-option">
+                                    <input type="checkbox" id="math" name="interest" value="Matematika">
+                                    <label for="math">Matematika</label>
+                                </div>
+                                <div class="interest-option">
+                                    <input type="checkbox" id="science" name="interest" value="Sains">
+                                    <label for="science">Sains</label>
+                                </div>
+                                <div class="interest-option">
+                                    <input type="checkbox" id="language" name="interest" value="Bahasa">
+                                    <label for="language">Bahasa</label>
+                                </div>
+                                <div class="interest-option">
+                                    <input type="checkbox" id="programming" name="interest" value="Pemrograman">
+                                    <label for="programming">Pemrograman</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Serenity Student</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Fitur</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2025 Serenity Student. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('registrationForm');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const interests = document.querySelectorAll('input[name="interest"]:checked');
+
+            clearErrors();
+            
+            let isValid = true;
+            
+            if (!name.value.trim()) {
+                showError(name, 'Nama lengkap wajib diisi');
+                isValid = false;
+            }
+            
+            if (!email.value.trim()) {
+                showError(email, 'Email wajib diisi');
+                isValid = false;
+            } else if (!isValidEmail(email.value)) {
+                showError(email, 'Email tidak valid');
+                isValid = false;
+            }
+            
+            if (interests.length === 0) {
+                const interestGroup = document.querySelector('.interest-options').parentElement;
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = 'Pilih minimal satu minat belajar';
+                errorElement.style.color = 'red';
+                errorElement.style.marginTop = '5px';
+                errorElement.style.fontSize = '0.8rem';
+                interestGroup.appendChild(errorElement);
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Pesan Anda terkirim! Kami akan segera menghubungi Anda.');
+                form.reset();
+            }
+        }
+        
+        function showError(input, message) {
+            const formGroup = input.parentElement;
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            errorElement.textContent = message;
+            errorElement.style.color = 'red';
+            errorElement.style.marginTop = '5px';
+            errorElement.style.fontSize = '0.8rem';
+            formGroup.appendChild(errorElement);
+            
+            input.style.borderColor = 'red';
+        }
+        
+        function clearErrors() {
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.remove());
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.style.borderColor = '#ddd';
+            });
+        }
+        
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
